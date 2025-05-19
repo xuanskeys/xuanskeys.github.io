@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>XuanCode</title><meta name="author" content="xuanskeys"><meta name="copyright" content="xuanskeys"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="XuanCode">
+<meta property="og:url" content="http://xuanskeys.github.io/index.html">
+<meta property="og:site_name" content="XuanCode">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xuanskeys.github.io/image/person.jpg">
+<meta property="article:author" content="xuanskeys">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xuanskeys.github.io/image/person.jpg"><link rel="shortcut icon" href="/image/%E5%AF%BF%E5%8F%B8.png"><link rel="canonical" href="http://xuanskeys.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'XuanCode',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/styles/main.css"><script src="/styles/fish.js"></script><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/image/person.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/image/background.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">XuanCode</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">XuanCode</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/05/13/Netty/" title="Netty">Netty</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-13T15:15:00.000Z" title="发表于 2025-05-13 23:15:00">2025-05-13</time></span></div><div class="content">Nettynetty官网: https://netty.io/ 什么是Netty？ Netty 是 一个异步事件驱动的网络应用程序框架，用于快速开发可维护的高性能协议服务器和客户端。 Netty 是一个 NIO 客户端服务器框架，可以快速轻松地开发网络应用程序（例如协议服务器和客户端）。它极大地简化了 TCP 和 UDP 套接字服务器等网络编程。  Java IO什么是Java IO？官方文档：https://docs.oracle.com/javase/tutorial/essential/io/ I&#x2F;O（Input&#x2F;Output） 是计算机与外部设备（磁盘、网络、键盘等）进行数据交换的过程 分类1.BIO (阻塞IO)每当有一个客户端与服务器进行连接，服务器就会创建一个线程去处理当前连接，当通道没有数据的时候，线程会阻塞等待   1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253@Slf4jpublic...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/29/Vue3/" title="无标题">无标题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-29T09:51:08.718Z" title="发表于 2025-04-29 17:51:08">2025-04-29</time></span></div><div class="content">Vue3（未完待续）vue3项目结构(Vite 构建工具) 1234567891011121314151617181920my-vue3-project/├── index.html                 # 入口 HTML 文件（必须位于根目录）├── package.json               # 项目依赖和脚本配置├── vite.config.js             # Vite 构建配置├── tsconfig.json              # TypeScript 配置（可选）├── .gitignore                 # Git 忽略规则├── public/                    # 静态资源（不会被构建工具处理）│   └── favicon.ico            # 网站图标└── src/                       # 源代码目录    ├── main.js/ts             # 项目入口文件    ├── App.vue               ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/27/JavaScript/" title="JavaScript">JavaScript</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-27T00:24:00.000Z" title="发表于 2025-04-27 08:24:00">2025-04-27</time></span></div><div class="content">JavaScriptJavaScript是什么? JavaScript 是脚本语言  JavaScript 是一种轻量级的编程语言。  JavaScript 是可插入 HTML 页面的编程代码。  JavaScript 插入 HTML 页面后，可由所有的现代浏览器执行。   怎么定义？HTML 中的 Javascript 脚本代码必须位于  与  标签之间。 Javascript 脚本代码可被放置在 HTML 页面的  和  部分中。 JS显示数据 使用 window.alert() 弹出警告框。 使用 document.write() 方法将内容写到 HTML 文档中。 使用 innerHTML 写入到 HTML 元素。 使用 console.log() 写入到浏览器的控制台。  JS数据格式数字（Number）字面量 可以是整数或者是小数，或者是科学计数(e)。 字符串（String）字面量 可以使用单引号或双引号: 表达式字面量 用于计算：5 + 6 5 * 6 数组（Array）字面量 [40, 100, 1, 5, 25, 10] 对象（Object）字面量...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/26/Spring%20MVC/" title="Spring MVC">Spring MVC</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-26T00:24:00.000Z" title="发表于 2025-04-26 08:24:00">2025-04-26</time></span></div><div class="content">Spring MVC什么是Spring MVC？是Spring框架的一部分，是一个基于Java的Web开发框架，遵循经典的MVC设计模式。它通过分离应用程序的输入逻辑、业务逻辑和显示逻辑，帮助开发者构建灵活、可扩展且易于维护的Web应用程序。 MVC模式：  Model（模型）：负责处理数据和业务逻辑，通常由JavaBean或POJO（Plain Old Java Object）组成，可能涉及服务层（Service）和数据访问层（DAO）。 View（视图）：负责展示数据，支持多种视图技术（如JSP、Thymeleaf、FreeMarker等），通过逻辑视图名称与具体模板关联。 Controller（控制器）：处理用户请求，协调模型和视图。通过注解（如@Controller）标识，并使用@RequestMapping等注解映射HTTP请求到具体方法。   核心组件： DispatcherServlet：前端控制器，接收所有请求并分发给对应的处理器（Handler），是Spring...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/24/WebSocket/" title="无标题">无标题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-24T11:57:33.742Z" title="发表于 2025-04-24 19:57:33">2025-04-24</time></span></div><div class="content">WebSocket（ing）WebSocket协议 WebSocket （握手+ 数据传输）是一种网络通信协议，是HTML5 开始提供的一种在单个TCP连接上进行全双工通讯的协议。  Http协议  HTTP 协议是一种无状态的、无连接的、单向的应用层协议。它采用请求&#x2F;响应模型。通信请求只能由客户端发起，服务端对请求做出应答处理。 HTTP协议无法实现服务器主动向客户端发起消息。    图源：https://i-blog.csdnimg.cn/blog_migrate/e9d04aff4ce28cff02cc86bb76e48271.png </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/24/Servlet%E5%B0%8F%E7%BB%93/" title="Servlet小结">Servlet小结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-24T11:41:22.000Z" title="发表于 2025-04-24 19:41:22">2025-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Servlet/">Servlet</a></span></div><div class="content">Servlet小结视频链接：黑马servlet视频全套视频教程，快速入门servlet原理+servlet实战 什么是Servlet？ 菜鸟教程：Java Servlet servlet： server applet Servlet是一个运行在Web服务器（如Tomcat、Jetty）或应用服务器（如WebLogic、WildFly）中的Java类，用于扩展服务器功能，通过请求-响应模型与客户端交互（如浏览器）。  它实现了javax.servlet.Servlet接口或继承HttpServlet类，处理HTTP请求（GET、POST等）并生成动态响应（HTML、JSON、图片等）。 与JSP（JavaServer Pages）结合使用时，Servlet负责业务逻辑处理，JSP负责页面渲染。   Servlet其实就是一个接口，它定义了Java类被浏览器访问到（tomcat识别到）的规则，只要实现了这个接口的Java类就是一个Servlet 快速入门1.创建项目 2.编写Servlet类2.1 实现Servlet接口1public class ServletDemo1...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/23/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%B0%8F%E7%BB%93/" title="若依项目部署小结">若依项目部署小结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-23T00:24:00.000Z" title="发表于 2025-04-23 08:24:00">2025-04-23</time></span></div><div class="content">环境搭建虚拟机环境：jdk1.8 + tomcat9 + nginx  A ：虚拟机A运行前端项目 A  B：虚拟机B运行war包 B  C：虚拟机C运行jar包 C  mysql和redis连的是C主机    前端项目部署必备：nginx环境 + 打包好的dist文件夹 1.前端打包命令： 在当前前端项目的根目录 12npm i # 下载依赖npm run build # 打包 结束会生成一个dist文件夹  2.nginx部署 修改conf文件夹下的nginx.conf文件 1234567891011121314151617181920212223server &#123;        listen 8080;        server_name localhost;        # 前端静态文件配置 : dist目录        location / &#123;            root   /usr/local/program/ruoyi-ui/dist;            index  index.html index.htm;       ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/21/CentOS%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="CentOS 7环境搭建">CentOS 7环境搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-21T15:24:00.000Z" title="发表于 2025-04-21 23:24:00">2025-04-21</time></span></div><div class="content">CentOS 7环境搭建我的基础环境：  CentOS版本：CentOS Linux release 7.7.1908 (Core) Vmware版本：VMware® Workstation 17 Pro 17.5.0 build-22583795   注意：  所有有关防火墙的操作都可以不开端口，但是我为了测试方便我就开了端口号，便于后续本地测试，这个自行选择。 我所有的安装指令都是在root用户权限下执行的。 参考：软件安装 | CodeSheep 如有错误，欢迎指正！   1.验证网络连通性12ping 8.8.8.8ping www.baidu.com   连不通的，去修改一下&#x2F;etc&#x2F;resolv.conf下的dns配置 12345# /etc/resolv.confnameserver 223.5.5.5      # 阿里云主DNSnameserver 223.6.6.6      # 阿里云备DNSnameserver 114.114.114.114 # 114公共DNS（备用）nameserver 8.8.8.8        #...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/20/%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/" title="最短路问题">最短路问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-20T02:09:44.000Z" title="发表于 2025-04-20 10:09:44">2025-04-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">学习思路（yxc总结）： 一. 朴素Dijkstra算法 (稠密图)****&lt;邻接矩阵&gt;算法思路： 更新过程：acwing849. Dijkstra求最短路 I  此题思路（分解版）： 1.读入的同时需要更新边权 1g[a][b] = min(g[a][b], c);//g[][]存放的为最小边权   2.Dijkstra算法 (核心步骤)，循环思路对应朴素Dijkstra算法的第二步 123456789101112for (int i = 0; i &lt; n; i ++ )//循环每一个点&#123;       int t = -1;//初始化       for (int j = 1; j &lt;= n; j ++ )           if (!st[j] &amp;&amp; (t == -1 || d[t] &gt; d[j]))//没有确定最短距离的点 + 没有更新过t/距离更近的点               t = j;                      st[t] = true;//标记t这个点已确定最短距离           ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/20/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" title="Java虚拟机">Java虚拟机</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-20T02:07:29.000Z" title="发表于 2025-04-20 10:07:29">2025-04-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JVM/">JVM</a></span></div><div class="content">JVM的概念百度百科：java虚拟机 什么是虚拟机？虚拟机是一种抽象化的计算机，通过在实际的计算机上仿真模拟各种计算机功能来实现的。 为什么要有JVM？  Java设计的初衷是使要建的能在任何平台上运行的程序不需要再在每个单独的平台上由程序员进行重写或重编译。 Java虚拟机使这个愿望变为可能，因为它能知道每条指令的长度和平台的其他特性。 JVM的设计目标是提供一个基于抽象规格描述的计算机模型，为解释程序开发人员提供的任何系统上运行。   什么是java虚拟机?JVM全称Java Virtual...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/image/person.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">xuanskeys</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuanskeys"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到XuanCode。更多详细信息请前往CSDN：https://blog.csdn.net/m0_73569492?type=blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/13/Netty/" title="Netty">Netty</a><time datetime="2025-05-13T15:15:00.000Z" title="发表于 2025-05-13 23:15:00">2025-05-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/29/Vue3/" title="无标题">无标题</a><time datetime="2025-04-29T09:51:08.718Z" title="发表于 2025-04-29 17:51:08">2025-04-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/27/JavaScript/" title="JavaScript">JavaScript</a><time datetime="2025-04-27T00:24:00.000Z" title="发表于 2025-04-27 08:24:00">2025-04-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/26/Spring%20MVC/" title="Spring MVC">Spring MVC</a><time datetime="2025-04-26T00:24:00.000Z" title="发表于 2025-04-26 08:24:00">2025-04-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/24/WebSocket/" title="无标题">无标题</a><time datetime="2025-04-24T11:57:33.742Z" title="发表于 2025-04-24 19:57:33">2025-04-24</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JVM/"><span class="card-category-list-name">JVM</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">Java并发编程</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Servlet/"><span class="card-category-list-name">Servlet</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/1/" style="font-size: 1.1em; color: #999">1</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/05/">
+            <span class="card-archive-list-date">
+              五月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">17</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">18</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-05-19T02:34:48.576Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By xuanskeys</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["白日不到处 &#44; 青春恰自来","苔花如米小 &#44; 也学牡丹开"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["白日不到处 &#44; 青春恰自来","苔花如米小 &#44; 也学牡丹开"])
+}
+typedJSFn.run(subtitleType)</script></div><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/gh/xiabo2/CDN@latest/fishes.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
